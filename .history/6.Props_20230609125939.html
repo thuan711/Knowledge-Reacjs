@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!---
+       *Props
+
+        - React elements
+            - Sử dụng props giống như với atribute của thẻ HTML
+            - 2 props class, for => className, htmlFor
+            - Phải tuân theo quy ước có sẵn
+        - React component
+            - Sử dụng props giống như đối số cho Component
+            - Tự do đặt tên props
+                - Đặt theo camelCase
+                - *Có thể bao gồm gạch ngang
+        - Chú ý:
+            - Prop "key" là prop đặc biệt
+            - Props cơ bản là đối số của Component
+                => Props có thể là bất cứ kiểu dữ liệu gì
+            - Sử dụng destructing
+
+    -->
+    
+    <div id="root"></div>
+    <script type="text/babel">
+        function PostItem(){
+            return (
+                <div className="post-item">
+                    <label htmlFor="email"></label>
+                    <img src="https://images.unsplash.com/photo-1682685797886-79020b7462a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=1000&q=60" alt="jfgjfj"/>
+                    <h2 className="post-title">Tương tác với tôi</h2>
+                    <p className="post-desc">Bạn có kiến thức về php</p>
+                    <p className="post-published">1 Trang vở 1 tương lai</p>
+                </div>
+            )
+        }
+        function App(){
+            return (
+                <div className="header"><PostItem/></div>
+            )
+        }
+        // get root element
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<App />);
+    </script>
+</body>
+</html>

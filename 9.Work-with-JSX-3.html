@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!---
+       Làm việc với JSX
+        
+        Phần I
+        - Xử lí DOM event
+        - Component do chúng ta định nghĩa phải viết in hoa kí tự đầu
+        - Chọn component trong 1 object
+        - Booleans, Null & Undefined không đc render
+        - Kết hợp toán tử logic để render theo điều kiện
+
+        Phần II
+        - Props trong JXS
+            - <YourComponent
+                proName1 = "Strng literals"
+                proName2 = {expression} biểu thức
+            />
+            - Props default to "true" primary không ghi gì mặc định là true
+            - Spread/Rest props
+            - Children prop
+                - <YourComponent>String literals</YourComponent>
+                - <YourComponent>{expression}</YourComponent>
+            - Render props
+
+    -->
+    
+    <div id="root"></div>
+    <script type="text/babel">
+        function Input({label, ...inputProps}){
+            return(
+                <div>
+                    <label>{label}</label>
+                    <input {...inputProps}/>
+                </div>
+            )
+        }
+        function App(){
+            return (
+                <div id="wrapper">
+                    <Input
+                        label="Full name"
+                        type="text"
+                        placeholder="Enter name ..."
+                        title="Day la input"
+                        onFocus = {() =>{
+                            console.log(Math.random());
+                        }}
+                    />
+                </div>
+            )
+        }
+        // get root element
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<App />);
+    </script>
+</body>
+</html>

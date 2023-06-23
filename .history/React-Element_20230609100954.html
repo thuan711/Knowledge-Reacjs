@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJS</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+</head>
+<body>
+    <h1>Add React to Website</h1>
+    <!-- 
+        1. Github, NPMJS, UNPKG
+        - Github là nơi lưu trữ mã nguồnhttps://github.com/facebook/react
+        - NPMJS là nơi lưu trữ sản phẩm được built từ mã nguồn https://www.npmjs.com/
+        - UNPKG dùng để lấy các thư viện bên NPMJS https://unpkg.com/react@18.2.0/index.js
+        2. Add React to website
+        3. Official doc
+    -->
+    <!--
+        1. React.createElement() -> React element
+        2. So sánh với document.createElement() -> DOM element
+        3. Thay đổi: id, className, style, ...
+        4. Thêm: text, HTML
+        5. Tạo: <h1 title="Hello" class="heading">Hello World</h1>
+        6. Tạo:
+        <ul>
+            <li>ReactJS</li>
+            <li>JavaScript</li>
+        </ul>
+        7. Tạo:
+        <div class="post-item">
+            <h2 title="React">Học ReactJS</h2>
+            <p>Học ReactJS từ cơ bản đến nâng cao</p>
+        </div>
+    -->
+    <div id="root"></div>
+    <script>
+        // 7
+        const divR = React.createElement('div',
+        {className:'post-item'},
+        React.createElement('h2',{title:'React'},'Học ReactJS'),
+        React.createElement('p',null,'Học ReactJS từ cơ bản đến nâng cao')
+        )
+        console.log(divR);
+        // 5
+        //DOM
+        const h1DOM = document.createElement('h1');
+        h1DOM.title = 'Hello'
+        h1DOM.className = 'heading'
+        h1DOM.innerText = 'Hello World!'
+        //document.body.appendChild(h1DOM);
+        //React -> React-DOM
+        //React.createElement(type,props,children,n);
+        const h1React = React.createElement('h1',{
+            title: 'Hello',
+            className: 'headings',
+        },'Hello World!')
+
+        //console.dir(h1DOM);
+        console.log(h1React);
+        //6
+        const ulDOM = document.createElement('ul');
+        const liDOM1 = document.createElement('li');
+        liDOM1.innerHTML='ReactJS'
+        const liDOM2 = document.createElement('li');
+        liDOM2.innerHTML='Javascript'
+        ulDOM.appendChild(liDOM1);
+        ulDOM.appendChild(liDOM2);
+        //document.body.appendChild(ulDOM);
+        //React
+        const ulReact = React.createElement(
+            'ul',
+            null,
+            React.createElement('li',null,'ReactJS'),
+            React.createElement('li',null,'JavaScript')
+        )
+        console.log(ulReact);
+        const container = document.getElementById('root');
+        // React-DOM -> render UI
+        const root = ReactDOM.createRoot(container);
+        root.render(divR);
+        //root.render(ulReact);
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!---
+        JSX -> JavaScript XML
+        1. Luôn dùng React.createElement()
+        2. JXS gần giống như HTML
+        3. JXS không phải là HTML, cần có JS, babel để dùng JSX chuyển ES6 thành ES5
+        4. JXS và React-DOM
+        <div class="post-item">
+            <h2 title="React">Học ReactJS</h2>
+            <p>Học ReactJS từ cơ bản đến nâng cao</p>
+        </div>
+    -->
+    <div id="root"></div>
+    <script type="text/babel">
+        const divR = <div class="post-item">
+            <h2 title="React">Học ReactJS</h2>
+            <p>Học ReactJS từ cơ bản đến nâng cao</p>
+        </div>
+        
+        // get root element
+        const container = document.getElementById('root');
+        // React-DOM -> render UI
+        const root = ReactDOM.createRoot(container);
+        root.render(divR);
+    </script>
+</body>
+</html>
